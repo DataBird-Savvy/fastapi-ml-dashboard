@@ -1,1 +1,11 @@
-
+fastapi
+uvicorn[standard]
+passlib[bcrypt] 
+pydantic[email]           
+motor
+python-dotenv
+axios
+sqlalchemy
+python-multipart
+python-jose
+PyJWT[crypto]
