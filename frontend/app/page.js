@@ -1,67 +1,14 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+// app/page.js
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function LoginPage() {
-  const router = useRouter();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+export default function HomeRedirect() {
+  const router = useRouter()
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setError('');
+  useEffect(() => {
+    router.push('/login')
+  }, [router])
 
-    const res = await fetch('http://localhost:8000/token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ username, password }),
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      localStorage.setItem('token', data.access_token);
-      router.push('/dashboard');
-    } else {
-      setError('Invalid credentials');
-    }
-  };
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-center text-white">Login</h2>
-        <form onSubmit={handleLogin} className="space-y-4">
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            className="w-full px-4 py-2 border border-gray-600 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md"
-          >
-            Login
-          </button>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
-        </form>
-        <p className="mt-4 text-sm text-center text-gray-300">
-          Not registered?{' '}
-          <Link href="/register" className="text-blue-400 hover:underline">
-            Create an account
-          </Link>
-        </p>
-      </div>
-    </div>
-  );
+  return null
 }
