@@ -116,7 +116,7 @@ export default function FileUpload({ selectedView }) {
       {error && <p className="text-red-400">{error}</p>}
       {success && (
         <p className="text-green-400">
-          ✅ Upload successful! Displaying schema and insights.
+          ✅ Upload successful! Now select "Schema", "Insights", or "Train" from the sidebar.
         </p>
       )}
 

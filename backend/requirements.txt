@@ -1,6 +1,8 @@
 fastapi
 uvicorn[standard]
-passlib[bcrypt] 
+passlib
+bcrypt==3.2.0
+
 pydantic[email]           
 motor
 python-dotenv
@@ -9,3 +11,11 @@ sqlalchemy
 python-multipart
 python-jose
 PyJWT[crypto]
+pandas
+scipy
+joblib
+scikit-learn
+pymongo 
+axios
+certifi
+

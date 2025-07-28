@@ -9,7 +9,7 @@ import FileUpload from '../components/FileUpload';
 export default function DashboardPage() {
   const router = useRouter();
   const [authenticated, setAuthenticated] = useState(false);
-  const [view, setView] = useState('schema');
+  const [view, setView] = useState('');
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
